@@ -1,19 +1,41 @@
 <template>
 	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-8">
-				<div class="card">
-					<div class="card-header">Example Component</div>
-
-					<div class="card-body">I'm an example component.</div>
-				</div>
-			</div>
-		</div>
 		<div class="row mt-4">
 			<div class="alert alert-primary d-flex justify-content-between" role="alert">
 				<h5>List is Here</h5>
-				<!-- <button @click="createTask" id="addModal" class="btn btn-dark" data-bs-target="#addModal" data-bs-toggle="modal" type="button">Create TasK</button> -->
-				<button @click="createTask" class="btn btn-dark" id="addModal" type="button">Create TasK</button>
+				<button class="btn btn-dark" data-bs-target="#addModal" data-bs-toggle="modal" type="button">Create TasK</button>
+				<!-- <button @click="createTask" class="btn btn-dark" id="addModal" type="button">Create TasK</button> -->
+			</div>
+		</div>
+		<!--- ---------------------- data list --------------------- -->
+		<div class="row mt-4">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-header">Example Component</div>
+
+					<div class="card-body">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Name</th>
+									<th scope="col">Email</th>
+									<th scope="col">Gender</th>
+									<th scope="col">Phone</th>
+									<th scope="col">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">1</th>
+									<td>Mark</td>
+									<td>Otto</td>
+									<td>@mdo</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- --------------- modal start ----------------------- -->
@@ -98,8 +120,8 @@ export default {
 	methods: {
 		createTask() {
 			// console.log("object");
-			console.log($);
-			$("#addModal").modal("show");
+			// console.log($);
+			// $("#addModal").modal("show");
 		},
 		storeModal() {
 			console.log("hi");
@@ -137,7 +159,14 @@ export default {
 						console.log(object);
 					})
 					.finally(() => {
-						$("#addModal").modal("hide");
+						this.$toast.success(`Data Successfully Added`);
+						var delayInMilliseconds = 100; //1 second
+
+						setTimeout(function () {
+							//your code to be executed after 1 second
+						}, delayInMilliseconds);
+						location.reload();
+						// $("#addModal").modal("hide");
 					});
 			} else {
 				console.log("error");

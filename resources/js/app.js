@@ -5,6 +5,9 @@ import AppComponent from "./components/AppComponent.vue";
 import HomeDataListComponent from "./components/HomeDataListComponent.vue";
 import AboutComponent from "./components/AboutComponent.vue";
 import $ from "jquery";
+import Toaster from "@meforma/vue-toaster";
+
+// createApp(App).use(Toaster).mount("#app");
 const routes = [
     { path: "/", component: HomeDataListComponent },
     { path: "/about", component: AboutComponent },
@@ -22,4 +25,4 @@ app.component("home-component", HomeDataListComponent);
 app.component("about-component", AboutComponent);
 app.component("app-component", AppComponent);
 
-app.mount("#app");
+app.use(Toaster).mount("#app");
